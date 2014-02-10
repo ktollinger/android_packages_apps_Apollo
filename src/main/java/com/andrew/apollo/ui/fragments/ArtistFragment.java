@@ -13,13 +13,14 @@ package com.andrew.apollo.ui.fragments;
 
 import static com.andrew.apollo.utils.PreferenceUtils.ARTIST_LAYOUT;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.Loader;
-import android.text.TextUtils;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
@@ -39,7 +40,7 @@ import android.widget.TextView;
 import com.andrew.apollo.MusicStateListener;
 import com.andrew.apollo.R;
 import com.andrew.apollo.adapters.ArtistAdapter;
-import com.andrew.apollo.loaders.ArtistLoader;
+import com.andrew.apollo.loaders.AlbumArtistLoader;
 import com.andrew.apollo.menu.CreateNewPlaylist;
 import com.andrew.apollo.menu.DeleteDialog;
 import com.andrew.apollo.menu.FragmentMenuItems;
@@ -51,8 +52,6 @@ import com.andrew.apollo.utils.MusicUtils;
 import com.andrew.apollo.utils.NavUtils;
 import com.andrew.apollo.utils.PreferenceUtils;
 import com.viewpagerindicator.TitlePageIndicator;
-
-import java.util.List;
 
 /**
  * This class is used to display all of the artists on a user's device.
@@ -282,7 +281,7 @@ public class ArtistFragment extends Fragment implements LoaderCallbacks<List<Art
      */
     @Override
     public Loader<List<Artist>> onCreateLoader(final int id, final Bundle args) {
-        return new ArtistLoader(getActivity());
+        return new AlbumArtistLoader(getActivity());
     }
 
     /**
